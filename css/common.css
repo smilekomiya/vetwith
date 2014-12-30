@@ -1,0 +1,410 @@
+@charset "UTF-8";
+
+/*ページ全体の設定*/
+body{
+	background-color: #ffffff;
+	margin: 0;
+	padding: 0;
+	font-family: "メイリオ","游ゴシック体","游明朝体",Arial,sans-serif;
+	height: 100%;
+	width: 100%;
+	color: #000000;
+}
+
+#outest{
+	box-sizing: border-box;
+	width: 100%;
+	background-color: #ffffff;
+	margin: 0 0 -100px 0;
+	padding: 0 0 100px 0;
+	position: relative;
+	height: auto !important;
+	height: 100%;
+	min-height: 100%;
+}
+
+/*------ サイト説明 ------*/
+#topExp{
+	position: relative;
+	top: 5px;
+	left: -50px;
+	text-align: left;
+	width: 1000px;
+	color: #000000;
+	margin: 0 auto;
+	padding: 0;
+}
+
+/*------ パンくずリスト ------*/
+#pan{
+	box-sizing: border-box;
+	position: relative;
+	bottom: 5px;
+	left: 0;
+	text-align: left;
+	width: 1000px;
+	color: #333333;
+	margin: 0 auto;
+	padding: 10px;
+}
+
+/*------ トップページ以外のメインコンテンツ ------*/
+
+#main{
+	box-sizing: border-box;
+	text-align: left;
+	width: 1000px;
+	color: #333333;
+	margin: 0 auto;
+	padding: 5px 0 10px 0;
+}
+#regi_form{
+	box-sizing: border-box;
+	text-align: left;
+	width: 100%;
+	color: #333333;
+	margin: 20px;
+	padding: 5px 0 10px 0;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	border: 5px #ff9900 solid;
+	}
+
+.regi_form table.regi{
+	width: 100%;
+	border: 0;
+	padding: 0;
+}
+
+.regi_form table.regi tr td{
+	padding: 5px;
+}
+/*-----------------------jQueryまわり-------------------------------*/
+
+
+/* ページトップへ戻る */
+
+.pageTop {
+	position:relative;
+	width:90%;
+	max-width:900px;
+	height:0;
+	margin:0 auto;
+}
+.pageTop a {
+	position: fixed;
+	bottom: 0px;
+	left:auto;
+	display: block;
+	width: 66px;
+	hegiht:66px;
+	margin-left:920px;
+	/* ↓以下はリンク装飾↓ */
+	padding:1em 0;
+	background:#3498db;
+	text-align:center;
+	outline:none;
+	text-decoration: none;
+	z-index:9999;
+	border-radius:3px 3px 0 0;
+}
+
+/*------------------------リンクの設定------------------------*/
+
+a{
+	color:#0000ff;
+	text-decoration: none;
+}
+
+a:hover{
+	color:#ff0000;
+}
+
+
+/*------------------------イメージの設定------------------------*/
+
+img{
+	border: 0}
+
+
+/*------------------------外枠の設定------------------------*/
+
+div#wrapper{/*横幅は1000px*/
+	box-sizing: border-box;
+	width: 1000px;
+	margin: 0 auto;
+	border: 0;
+	padding: 0;
+	background-color: #ffffff;
+	position: relative;
+}
+
+#wrapper:after{
+content : "";
+display : block;
+clear : both;
+}
+
+div#menu{
+	float: left;
+	width: 300px;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	padding: 11px 0 0 0;
+	
+}
+
+div#contents{
+	float: right;
+	width: 690px;
+	margin: 0;
+	padding: 11px 0 0 0;
+}
+
+
+
+div#footer{
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0;
+	padding: 20px 0 0 20px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 100px;
+	text-align: center;
+	color: #ffffff;
+	background: -moz-linear-gradient(top, #000080, #0066ff);/* Firefox用 */  
+    background: -webkit-gradient(linear, left top, left bottom, from(#000080), to(#0066ff));/* Safari,Google Chrome用 */ 
+}
+
+/*------検索窓-------*/
+form, input {
+  margin: 0; /* マージンをリセット */
+}
+
+form{
+	position: relative;
+}
+
+input[type="search"] {
+  background-color: #eeeeff;
+  border: 1px #dddddd solid;
+  height: 40px; /* 高さ40px */
+  width: 200px;
+  padding: 0 10px;
+  margin: 0;
+  box-sizing: content-box;
+  position: absolute;
+  top: 0;
+  left:370px;
+}
+input[type="image"] {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  width: 40px;
+  height: 40px; /* 高さ40px */
+  position: absolute;
+  top: 0;
+  left:600px;
+}
+input[type="search"]:focus {
+  background:rgba(255,255,255,0.8); /* 背景色を半透明に */
+}
+input[type="image"]:hover {
+  opacity: 0.8; /* ボックスを半透明に */
+}
+
+/*------------------------トップナビ------------------------*/
+
+#topNavi{
+	position: relative;
+	width: 100%;
+	margin: 0;
+	padding: 0 0 5px 0;
+	background: #ff9900;
+	border: 0;
+	vertical-align: middle;
+	box-shadow: 0 0 0 #000; /*CSS3*/
+	-moz-box-shadow: 0 0 0 #000; /* Firefox用*/
+	-webkit-box-shadow: 0 0 0 #000; /* Google Chrome, Safari用*/
+	background-image: url(../subimage/titleback.gif);
+}
+
+#within{
+	width: 1000px;
+	border: 0;
+	margin : 0 auto;
+}
+
+#within ul{
+	width: 700px;
+	height: 50px;
+	margin: 0 0 0 300px;
+	padding: 0;
+	list-style-type: none;
+	overflow: hidden;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+#within li{
+	width: 140px;
+	float: left;
+	line-height: 50px;
+	padding: 0;
+	text-align: center;
+	font-size: 90%;
+}
+
+#within li a{
+	font-size: 120%;
+	font-weight: bold;
+	color: #222222;
+	display: block;
+}
+
+#within li a:hover{
+	background: #ffffff;
+	color: #dd0000;
+	text-decoration: none;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+#searchForm{
+	box-sizing: border-box;
+	width: 100%;
+	margin: 5px 0 0 0;
+	padding: 5px;
+	height: 55px;
+	text-align: center;
+	color: #ffffff;
+	background: -moz-linear-gradient(top, #0066ff, #ffffff);/* Firefox用 */  
+    background: -webkit-gradient(linear, left top, left bottom, from(#0066ff), to(#eeeeff));/* Safari,Google Chrome用 */ 
+	border: 1px #ddddff solid;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+/*------------------------左メニュー----------------------*/
+
+.notion{
+	box-sizing: content-box;
+	margin: 10px 0 10px 0;
+	padding: 3px 10px;
+	width: 274px;
+	border: 3px #0080c9 solid;
+	text-align: left;
+	background-color: #c8d627;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+.leftTopic{
+	box-sizing: border-box;
+	margin: 10px 0;
+	padding: 3px 10px;
+	width: 100%;
+	font-size: 150%;
+	text-shadow:1px 1px 0 rgba(240,240,240,2);
+	text-align: center;
+	border: 1px #efefef solid;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	box-shadow:0px 0px 1px 0px #666666;
+    -moz-box-shadow:0px 0px 1px 0px #666666;
+    -webkit-box-shadow:0px 0px 1px 0px #666666;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #efefef), color-stop(1.00, #cccccc));
+    background: -webkit-linear-gradient(#efefef, #cccccc);
+    background: -moz-linear-gradient(#efefef, #cccccc);
+    background: -o-linear-gradient(#efefef, #cccccc);
+    background: -ms-linear-gradient(#efefef, #cccccc);
+    background: linear-gradient(#efefef, #cccccc);
+}
+
+.select-box{
+	background: #ffffff;
+	border: 2px solid #ff9900;
+	border-radius: 8px;
+	color: #222222;
+	font-size: 100%;
+	height: 40px;
+	line-height: 40px;
+	text-align: left;
+	text-indent: 5px;
+	vertical-align: middle;
+	width: 300px;
+}
+
+
+#loginribon{
+	text-align: left;
+	position:relative;
+	margin:0 0 10px 0;
+	padding:5px 20px;
+	border:#333333 solid 3px;
+	border-radius:18px;
+	background:#ffffff;
+	box-shadow:2px 3px 0 0 #000;
+}
+#loginribon:before{
+	content:" ";
+	position:absolute;
+	top:100%;
+	left:14px;
+	width:0;
+	height:0;
+	border-width:20px;
+	border-style:solid;
+	border-color:transparent;
+	border-top-color:#333333;
+}
+#loginribon:after{
+	content:" ";
+	position:absolute;
+	bottom:-27px;
+	left:18px;
+	width:0;
+	height:0;
+	border-width:14px;
+	border-style:solid;
+	border-color:transparent;
+	border-top-color:#ffffff;
+}
+
+#loginform{
+	text-align: left;
+	border: 4px #ff9900 solid;
+	border-radius:8px;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 13px 5px 5px 5px;
+	background-color: #cdcdcd;
+}
+
+.maru{
+	position: relative;
+	color: #fff;
+}
+
+.maru:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: ;
+	left: -10px; 
+	width: 31px;
+	height: 40px;
+	border-radius: 40px 0 0 40px;
+	background-color: #ff9900;
+	z-index: 0;
+}
