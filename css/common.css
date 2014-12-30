@@ -58,7 +58,7 @@ body{
 	margin: 0 auto;
 	padding: 5px 0 10px 0;
 }
-#regi_form{
+.regi_form{
 	box-sizing: border-box;
 	text-align: left;
 	width: 100%;
