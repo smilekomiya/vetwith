@@ -119,8 +119,6 @@ $(function(){
 	
 	
 
-	</div><!-- contents -->
-
 	
 </div><!-- wrapper -->
 

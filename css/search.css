@@ -1,0 +1,98 @@
+div.anken{
+	position: relative;
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0 0 30px 0;
+	padding: 0;
+	border-radius: 8px;
+	border: 5px #ff9900 solid;
+}
+
+.anken .prefecture{
+	position: absolute;
+	margin: 0;
+	padding: 1px;
+	width: 80px;
+	top: 0;
+	left: 0;
+	text-align: center;
+	font-size: 160%;
+	z-index: 2;
+	background-color: #ffffff;
+}
+
+.anken h3.copy{
+	box-sizing: border-box;
+	width: 100%;
+	font-weight: bold;
+	margin: 10px;
+}
+
+h2.hospitalname{
+	font-size: 120%;
+	background-color: #ff9900;
+	margin: 0;
+	padding: 5px 0 5px 100px;
+	height: 35px;
+	z-index: 1;
+}
+
+h2.hospitalname a{
+	color: #ffffff;
+}
+
+h2.hospitalname a:hover{
+	color: #0000ff;
+}
+
+.anken td,th{
+	text-align: right;
+}
+
+.anken ul{
+	width: 700px;
+	height: 50px;
+	margin: 0 auto;
+	margin-top:20px;
+	margin-bottom: 20px;
+	padding: 0;
+	list-style-type: none;
+}
+
+.anken li{
+	box-sizing: border-box;
+	width: 160px;
+	margin: 0 80px 0 80px;
+	float: left;
+	line-height: 50px;
+	padding: 0;
+	text-align: center;
+	font-size: 90%;
+}
+
+.anken .linknavi a{
+	display: block;
+	font-size: 120%;
+	font-weight: bold;
+	background-color: #555555;
+	color: #ffffff;
+}
+
+.anken .linknavi a:hover{
+	background-color: #888888;
+	color: #ffffff;
+}
+
+.anken p.pr{
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0 auto;
+	padding: 20px 20px 0 20px;
+}
+
+#pager{
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0 auto;
+	padding: 10px;
+}
