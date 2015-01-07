@@ -5,6 +5,24 @@
 <link href="./css/form.css" rel="stylesheet" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
+
+<<?php 
+	$link = mysql_connect('173.194.227.156', 'root', 'jfhn2015');
+	if (!$link) {
+    	die('接続失敗です。'.mysql_error());
+	}
+
+	print('<p>接続に成功しました。</p>');
+
+
+
+	$close_flag = mysql_close($link);
+
+	if ($close_flag){
+    	print('<p>切断に成功しました。</p>');
+	}
+ ?>
+
 //スムーズスクロール
 $(function(){
    // #で始まるアンカーをクリックした場合に処理
