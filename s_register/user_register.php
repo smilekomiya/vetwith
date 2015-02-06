@@ -42,7 +42,27 @@ if(count($error) == 0) {
 	//トランザクション開始
 	mysql_query("begin");
 	
-	$query = "INSERT INTO members('userid', 'input_l_name', 'input_f_name', 'input_l_name_kana', 'input_f_name_kana', 'input_sex', 'input_password', 'input_email', 'input_grade', 'input_univ')";
+	//パスワードハッシュ化しなきゃ！
+	$input_password = pass_cipher($input_password, $email);
+	
+	//タイムゾーンも日本時間に設定しなきゃ！
+	date_default_timezone_set('Asia/Tokyo');
+	
+	$query = "UPDATE members SET l_name = $input_l_name,
+	f_name = $input_f_name,
+	l_name = $input_l_name_kana,
+	f_name = $input_f_name_kana,
+	sex = $input_sex,
+	password = $inpur_password,
+	email = $email,
+	grade = $input_grade,
+	university = $input_univ,
+	pre_userid = 'deleted'
+	";
+	
+	$query = "INSERT INTO members('l_name', 'f_name', 'l_name_kana', 'f_name_kana', 'sex', 'password', 'email', 'grade', 'university') VALUES('$input_l_name', '$input_f_name', '$input_l_name_kana', '$input_f_name_kana', '$input_sex', '$input_password', '$input_email', '$input_grade', '$input_univ')";
+	
+	
 	
 	/*会員のmemberidをすべてのitem_XXXテーブルに登録*/
 	try{
