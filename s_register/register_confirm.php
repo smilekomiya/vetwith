@@ -1,5 +1,13 @@
 <?php
 /* 入力フォームからパラメータを取得 */
+/*******************************************************************************
+ *
+ *	 [register_confirm.php]　会員登録内容の確認
+ * 
+ ********************************************************************************/
+
+/* ※この$formListは同じものを./user_register.phpでも用いる※ */
+/* 入力フォームからパラメータを取得 */
 $formList = array('mode', 'pre_userid', 'input_l_name', 'input_f_name', 'input_l_name_kana', 'input_f_name_kana', 'input_sex', 'input_password', 'input_email', 'input_grade', 'input_univ');
 
 /* 必須項目 */

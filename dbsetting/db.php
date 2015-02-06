@@ -5,7 +5,6 @@ $db['user'] = "root";
 $db['pass'] = "1234";
 $db['dbname'] = "vetwith";
 
-/*MySQLデータベースに接続するケース*/
 $conn = mysql_connect($db['server'],$db['user'],$db['pass']);
 mysql_select_db($db['dbname'], $conn); 
 

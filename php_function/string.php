@@ -11,7 +11,7 @@
 //英数字チェック
 //ユーザーIDチェック
 //カタカナチェック
-//パスワードの暗号化
+//ハッシュ化した値を返す。
 //*****************************************************
 //【要設定項目】
 //トップページまでのパス
@@ -100,9 +100,19 @@ function c_to_http($path){
 	}
 }
 
-//パスワードの暗号化
-function pass_cipher(){
+//ハッシュ化した値を返す
+function pass_cipher($password, $email){
+	$account = explode("@", "$email");//メールアドレスをアットマークの前で切断。
+	$account_length = strlen($account[0]);
+	if($account_length > 3){
+		$salt = substr($account[0], 0, 4);//切断したものの長さが4文字以上だったら、前４文字を取得。
+	}else{
+		$shibata = NULL;
+		for($i = $account_length; $i < 4; $i++){//4文字未満だったら、４文字になるように「s」を追加する。
+			$shibata .= "s";
+		}
+		$salt = $account[0].$shibata;
+	}
+	 return sha1($salt.$password.$salt);
 }
-
-
 ?>

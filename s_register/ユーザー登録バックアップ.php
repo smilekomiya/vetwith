@@ -35,15 +35,9 @@ $resultName = mysql_query($query);
 if(mysql_num_rows($resultName) > 0 ) { //ユーザーIDが存在
   array_push($error,"このユーザーネームはすでに登録されています。");
 }
-
-//実際にデータを追加していく。	
+	
 if(count($error) == 0) {
-	
-	//トランザクション開始
-	mysql_query("begin");
-	
-	$query = "INSERT INTO members('userid', 'input_l_name', 'input_f_name', 'input_l_name_kana', 'input_f_name_kana', 'input_sex', 'input_password', 'input_email', 'input_grade', 'input_univ')";
-	
+
 	/*会員のmemberidをすべてのitem_XXXテーブルに登録*/
 	try{
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
