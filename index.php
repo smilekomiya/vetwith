@@ -70,7 +70,7 @@ $(function(){
 	<input type="submit" name="login" value="ログイン" />
 	</form>
 	<p><span style="font-size: 80%;">ログインすることで、実習のエントリーなど動物病院の検索以外の機能を使えるようになります。</p>
-	<p><a href="./register/email_form.php">→新規登録する</a></p>
+	<p><a href="./s_register/index.php">→新規登録する</a></p>
 	</div>
 	
 	<div class="notion">
