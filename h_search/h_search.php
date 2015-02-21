@@ -34,9 +34,8 @@ $start = ($page - 1) * $disp;
 <div id="searchcontents">
 <?php
 
-if (dataCount == 0) {
+if ($dataCount == 0) {
     print('<p>検索結果無し</p>');
-
 }
 
 for ($i = $start;$i <= $start+5-1;$i++) {
