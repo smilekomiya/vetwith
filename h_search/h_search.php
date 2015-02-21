@@ -11,7 +11,7 @@ $error = array();
 
 mysql_set_charset('utf8');
 //SQL文を発行
-$query = "SELECT h_name, h_email FROM h_members WHERE h_name like '%$search%'";
+$query = "SELECT h_id, h_name, h_email FROM h_members WHERE h_name like '%$search%'";
 $result = mysql_query($query);
 
 //データの数
@@ -35,7 +35,9 @@ for ($i = $start;$i <= $start+5-1;$i++) {
     break;
   }
   print('<p>');
+  print('<a href="./h_search_detail.php?h_id='.$row[$i]['h_id'].'" target="_blank" value="h_search_detail">');
   print($row[$i]['h_name']);
+  print('</a>');
   print(','.$row[$i]['h_email']);
   print('</p>');
 }
