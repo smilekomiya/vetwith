@@ -60,7 +60,7 @@ $selected_value = $_POST["$name1"];
 <div style="width: 600px; margin: 0 auto; padding: 30px;">
 	病院検索をしますよ
 	<p>
-		<form action="index.php" method="post">
+<!-- 		<form action="index.php" method="post">
 			<input type="hidden" name="mode" value="h_search" />
 			<table>
 				<tr>
@@ -71,9 +71,9 @@ $selected_value = $_POST["$name1"];
 			<div>
 			<input type="submit" name="submit" value="検索" /></div>
 			</div>
-		</form>
+		</form> -->
 
-		<form action="index.php" method="post">
+		<form action="index.php" method="post" >
 			<input type="hidden" name="mode" value="h_search" />
 			<?php
 				pull_list($pref_array, $name1, $selected_value);
