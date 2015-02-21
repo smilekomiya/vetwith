@@ -35,57 +35,57 @@ switch($require_from_url){
 }
 
 //都道府県の連想配列と、そこからプルダウンメニューを作る。
-$name1 = 'h_prefecture';
+$name1 = 'input_h_prefecture';
 
 $pref_array = array(
 	"notSelected" => "動物病院の所在都道府県を選択してください。",
-	"1" => "北海道",
-	"2" => "青森県",
-	"3" => "岩手県",
-	"4" => "宮城県",
-	"5" => "秋田県",
-	"6" => "山形県",
-	"7" => "福島県",
-	"8" => "茨城県",
-	"9" => "栃木県",
-	"10" => "群馬県",
-	"11" => "埼玉県",
-	"12" => "千葉県",
-	"13" => "東京都",
-	"14" => "神奈川県",
-	"15" => "新潟県",
-	"16" => "富山県",
-	"17" => "石川県",
-	"18" => "福井県",
-	"19" => "山梨県",
-	"20" => "長野県",
-	"21" => "岐阜県",
-	"22" => "静岡県",
-	"23" => "愛知県",
-	"24" => "三重県",
-	"25" => "滋賀県",
-	"26" => "京都府",
-	"27" => "大阪府",
-	"28" => "兵庫県",
-	"29" => "奈良県",
-	"30" => "和歌山県",
-	"31" => "鳥取県",
-	"32" => "島根県",
-	"33" => "岡山県",
-	"34" => "広島県",
-	"35" => "山口県",
-	"36" => "徳島県",
-	"37" => "香川県",
-	"38" => "愛媛県",
-	"39" => "高知県",
-	"40" => "福岡県",
-	"41" => "佐賀県",
-	"42" => "長崎県",
-	"43" => "熊本県",
-	"44" => "大分県",
-	"45" => "宮崎県",
-	"46" => "鹿児島県",
-	"47" => "沖縄県"
+	"北海道"=>"北海道",
+	"青森県"=>"青森県",
+	"岩手県"=>"岩手県",
+	"宮城県"=>"宮城県",
+	"秋田県"=>"秋田県",
+	"山形県"=>"山形県",
+	"福島県"=>"福島県",
+	"茨城県"=>"茨城県",
+	"栃木県"=>"栃木県",
+	"群馬県"=>"群馬県",
+	"埼玉県"=>"埼玉県",
+	"千葉県"=>"千葉県",
+	"東京都"=>"東京都",
+	"神奈川県"=>"神奈川県",
+	"新潟県"=>"新潟県",
+	"富山県"=>"富山県",
+	"石川県"=>"石川県",
+	"福井県"=>"福井県",
+	"山梨県"=>"山梨県",
+	"長野県"=>"長野県",
+	"岐阜県"=>"岐阜県",
+	"静岡県"=>"静岡県",
+	"愛知県"=>"愛知県",
+	"三重県"=>"三重県",
+	"滋賀県"=>"滋賀県",
+	"京都府"=>"京都府",
+	"大阪府"=>"大阪府",
+	"兵庫県"=>"兵庫県",
+	"奈良県"=>"奈良県",
+	"和歌山県"=>"和歌山県",
+	"鳥取県"=>"鳥取県",
+	"島根県"=>"島根県",
+	"岡山県"=>"岡山県",
+	"広島県"=>"広島県",
+	"山口県"=>"山口県",
+	"徳島県"=>"徳島県",
+	"香川県"=>"香川県",
+	"愛媛県"=>"愛媛県",
+	"高知県"=>"高知県",
+	"福岡県"=>"福岡県",
+	"佐賀県"=>"佐賀県",
+	"長崎県"=>"長崎県",
+	"熊本県"=>"熊本県",
+	"大分県"=>"大分県",
+	"宮崎県"=>"宮崎県",
+	"鹿児島県"=>"鹿児島県",
+	"沖縄県"=>"沖縄県"
 	);
 
 if($form_style == "register_form"){
@@ -94,10 +94,11 @@ if($form_style == "register_form"){
 <form method="post" action="index.php">
 	<input type="hidden" name="mode" value="register_confirm">
 	<input type="hidden" name="pre_userid" value="<?php print $pre_userid; ?>">
-	<input type="hidden" name="email" value="<?php print $email; ?>">
+	<input type="hidden" name="input_h_email" value="<?php print $email; ?>">
 		<table class="regi">
 		<tr>
-		<td width="200px" align="right">動物病院名</td><td><input value="<?php echo $input_l_name; ?>" maxLength=200 name="h_name" type="text" size="20"></td>
+		<td width="200px" align="right">動物病院名</td><td>
+		<input value="<?php echo $input_h_name; ?>" maxLength=200 name="input_h_name" type="text" size="20"></td>
 		</tr>
 		<tr>
 		<tr>
@@ -111,45 +112,16 @@ pull_list($pref_array, $name1, $selected_value);
 		</td>
 		</tr>
 		<tr>
-		<td width="200px" align="right">性別</td><td>男<input type="radio" name="input_sex" value="man" 
-		<?php 
-		if($input_sex == "man" && $input_sex !=="woman"){
-			echo 'checked = \"checked\"';
-		}
-		?>
-		>女<input type="radio" name="input_sex" value="woman"
-		<?php 
-		if($input_sex == "woman" && $input_sex !=="man"){
-			echo 'checked = \"checked\"';
-		}
-		?>
-		></td>
-		</tr>
-		<tr>
-		<td width="200px" align="right">大学</td>
-		<td>
-<?php
-//大学を選択するプルダウンメニューを表示	
-$selected_value = $_POST["$name1"];
-pull_list($univ_array, $name1, $selected_value);
-?>
+		<td width="200px" align="right">都道府県以下の住所</td><td>
+		<input value="<?php echo $input_h_address; ?>" maxLength=400 name="input_h_address" type="text" size="50"> <span style="color:#ff0000;">例）千代田区千代田１－１</span>
 		</td>
 		</tr>
+		
 		<tr>
-		<td width="200px" align="right">学年</td>
-		<td>
-<?php
-//学年を選択するプルダウンメニューを表示	
-$selected_value = $_POST["$name2"];
-pull_list($grade_array, $name2, $selected_value);
-?>
-		</td>
+		<td width="200px" align="right">メールアドレス</td><td><input type="hidden" name="input_h_email" value="<?php echo $email; ?>"><?php echo $email; ?></td>
 		</tr>
 		<tr>
-		<td width="200px" align="right">メールアドレス</td><td><input type="hidden" name="input_email" value="<?php echo $email; ?>"><?php echo $email; ?></td>
-		</tr>
-		<tr>
-		<td width="200px" align="right">パスワード</td><td><input value="<?php echo $input_password; ?>" maxLength="200" name="input_password" type="text" size="30">   ※英数8字以上128字以下で入力してください。</td>
+		<td width="200px" align="right">パスワード</td><td><input value="<?php echo $input_h_password; ?>" maxLength="200" name="input_h_password" type="text" size="30">   ※英数8字以上128字以下で入力してください。</td>
 		</tr>
 		<tr><td> </td><td> </td></tr>
 		<tr>
@@ -167,58 +139,35 @@ pull_list($grade_array, $name2, $selected_value);
 	<input type="hidden" name="pre_userid" value="<?php print $pre_userid; ?>">
 		<table class="regi">
 		<tr>
-		<td width="200px" align="right">氏名</td>
+		<td width="200px" align="right">動物病院名</td>
 		<td>
-		姓： <input type="hidden" name="input_l_name" value="<?php echo $input_l_name; ?>"><?php echo $input_l_name; ?><br />名： <input type="hidden" name="input_f_name" value="<?php echo $input_f_name; ?>"><?php echo $input_f_name; ?>
+		<input type="hidden" name="input_h_name" value="<?php echo $input_h_name; ?>"><?php echo $input_h_name; ?>
 		</td>
 		</tr>
 		<tr>
-		<tr>
-		<td width="200px" align="right">氏名（フリガナ）</td>
+		<td width="200px" align="right">都道府県</td>
 		<td>
-		姓： <input type="hidden" name="input_l_name_kana" value="<?php echo $input_l_name_kana; ?>"><?php echo $input_l_name_kana; ?><br />名： <input type="hidden" name="input_f_name_kana" value="<?php echo $input_f_name_kana; ?>"><?php echo $input_f_name_kana; ?>
+		<input type="hidden" name="input_h_prefecture" value="<?php echo $input_h_prefecture; ?>"><?php echo $input_h_prefecture;?>
 		</td>
 		</tr>
 		<tr>
-		<td width="200px" align="right">性別</td><td>
-		<?php 
-		if($input_sex == "man"){
-		?>
-		<input type="hidden" name="input_sex" value="<?php echo $input_sex; ?>">男
-		<?php
-		}elseif($input_sex == "woman"){
-		?>
-		<input type="hidden" name="input_sex" value="<?php echo $input_sex; ?>">女
-		<?php
-		}else{
-			echo "性別が選択されていないかつそれがチェックされていないエラー";
-		}
-		?>
-		</td>
-		</tr>
-		<tr>
-		<td width="200px" align="right">大学</td>
+		<td width="200px" align="right">住所</td>
 		<td>
-		<input type="hidden" name="input_univ" value="<?php echo $input_univ; ?>"><?php echo $univ_array["$input_univ"];?>
-		</td>
-		</tr>
-		<tr>
-		<td width="200px" align="right">学年</td>
-		<td>
-		<input type="hidden" name="input_grade" value="<?php echo $input_grade; ?>"><?php echo $grade_array["$input_grade"];?>
+		<input type="hidden" name="input_h_address" value="<?php echo $_POST['input_h_address']; ?>"><?php echo $_POST['input_h_address']; ?>
 		</td>
 		</tr>
 		<tr>
 		<td width="200px" align="right">メールアドレス</td>
 		<td>
-		<input type="hidden" name="input_email" value="<?php echo $_POST['email']; ?>"><?php echo $_POST['email']; ?>
+		<input type="hidden" name="input_h_email" value="<?php echo $_POST['input_h_email']; ?>"><?php echo $_POST['input_h_email']; ?>
 		</td>
 		</tr>
 		<tr>
 		<td width="200px" align="right">パスワード</td>
-		<td><input type="hidden" name="input_password" value="<?php echo $input_password; ?>"><?php echo $input_password; ?>
+		<td><input type="hidden" name="input_h_password" value="<?php echo $input_h_password; ?>"><?php echo $input_h_password; ?>
 		</td>
 		</tr>
+		
 		<tr><td> </td><td> </td></tr>
 		<tr>
 		<td width="200px" align="right"> </td><td>
