@@ -18,7 +18,7 @@ div.anken{
 	position: absolute;
 	margin: 0;
 	padding: 1px;
-	width: 80px;
+	width: 120px;
 	top: 0;
 	left: 0;
 	text-align: center;
@@ -38,7 +38,7 @@ h2.hospitalname{
 	font-size: 120%;
 	background-color: #ff9900;
 	margin: 0;
-	padding: 5px 0 5px 100px;
+	padding: 5px 0 5px 140px;
 	height: 35px;
 	z-index: 1;
 }

@@ -34,44 +34,59 @@ switch($require_from_url){
 	$form_style = "error";
 }
 
-//大学名、学年の連想配列と、そこからプルダウンメニューを作る。
-$name1 = 'input_univ';
-$name2 = 'input_grade';	
-	
-$univ_array = array(
-	"notSelected" => "在学中の大学を選択してください。",
-	"1" => "酪農学園大学",
-	"2" => "北海道大学",
-	"3" => "帯広畜産大学",
-	"4" => "北里大学",
-	"5" => "岩手大学",
-	"6" => "東京大学",
-	"7" => "東京農工大学",
-	"8" => "日本大学",
-	"9" => "麻布大学",
-	"10" => "日本獣医生命科学大学",
-	"11" => "岐阜大学",
-	"12" => "大阪府立大学",
-	"13" => "鳥取大学",
-	"14" => "山口大学",
-	"15" => "宮崎大学",
-	"16" => "鹿児島大学"
-);
+//都道府県の連想配列と、そこからプルダウンメニューを作る。
+$name1 = 'h_prefecture';
 
-$grade_array = array(
-	"notSelected" => "現在の学年を選択してください。",
-	"1" => "1年",
-	"2" => "2年",
-	"3" => "3年",
-	"4" => "4年",
-	"5" => "5年",
-	"6" => "6年",
-	"7" => "博士1年",
-	"8" => "博士2年",
-	"9" => "博士3年",
-	"10" => "博士4年"
-);
-
+$pref_array = array(
+	"notSelected" => "動物病院の所在都道府県を選択してください。",
+	"1" => "北海道",
+	"2" => "青森県",
+	"3" => "岩手県",
+	"4" => "宮城県",
+	"5" => "秋田県",
+	"6" => "山形県",
+	"7" => "福島県",
+	"8" => "茨城県",
+	"9" => "栃木県",
+	"10" => "群馬県",
+	"11" => "埼玉県",
+	"12" => "千葉県",
+	"13" => "東京都",
+	"14" => "神奈川県",
+	"15" => "新潟県",
+	"16" => "富山県",
+	"17" => "石川県",
+	"18" => "福井県",
+	"19" => "山梨県",
+	"20" => "長野県",
+	"21" => "岐阜県",
+	"22" => "静岡県",
+	"23" => "愛知県",
+	"24" => "三重県",
+	"25" => "滋賀県",
+	"26" => "京都府",
+	"27" => "大阪府",
+	"28" => "兵庫県",
+	"29" => "奈良県",
+	"30" => "和歌山県",
+	"31" => "鳥取県",
+	"32" => "島根県",
+	"33" => "岡山県",
+	"34" => "広島県",
+	"35" => "山口県",
+	"36" => "徳島県",
+	"37" => "香川県",
+	"38" => "愛媛県",
+	"39" => "高知県",
+	"40" => "福岡県",
+	"41" => "佐賀県",
+	"42" => "長崎県",
+	"43" => "熊本県",
+	"44" => "大分県",
+	"45" => "宮崎県",
+	"46" => "鹿児島県",
+	"47" => "沖縄県"
+	);
 
 if($form_style == "register_form"){
 ?>
@@ -82,11 +97,18 @@ if($form_style == "register_form"){
 	<input type="hidden" name="email" value="<?php print $email; ?>">
 		<table class="regi">
 		<tr>
-		<td width="200px" align="right">氏名</td><td>姓<input value="<?php echo $input_l_name; ?>" maxLength=200 name="input_l_name" type="text" size="20">名<input value="<?php echo $input_f_name; ?>" maxLength=200 name="input_f_name" type="text" size="20"></td>
+		<td width="200px" align="right">動物病院名</td><td><input value="<?php echo $input_l_name; ?>" maxLength=200 name="h_name" type="text" size="20"></td>
 		</tr>
 		<tr>
-		<tr>-
-		<td width="200px" align="right">氏名（フリガナ）</td><td>姓<input value="<?php echo $input_l_name_kana; ?>" maxLength=200 name="input_l_name_kana" type="text" size="20">名<input value="<?php echo $input_f_name_kana; ?>" maxLength=200 name="input_f_name_kana" type="text" size="20">※全角カタカナで入力してください。</td>
+		<tr>
+		<td width="200px" align="right">都道府県</td><td>
+<?php
+//都道府県を選択するプルダウンメニューを表示	
+$selected_value = $_POST["$name1"];
+pull_list($pref_array, $name1, $selected_value);
+?>
+		
+		</td>
 		</tr>
 		<tr>
 		<td width="200px" align="right">性別</td><td>男<input type="radio" name="input_sex" value="man" 
