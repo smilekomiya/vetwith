@@ -36,6 +36,10 @@ $start = ($page - 1) * $disp;
 
 if ($dataCount == 0) {
     print('<p>検索結果無し</p>');
+} else {
+    print('<p>検索結果：');
+    print($dataCount);
+    print('件</p>');
 }
 
 for ($i = $start;$i <= $start+5-1;$i++) {
@@ -94,9 +98,9 @@ for ($i = $start;$i <= $start+5-1;$i++) {
 
 ?>
 </div>
+
+<div style="text-align:center; font-size: 150%;">
 <?php
-
-
 // エラー処理はあとでやろう
 
 //var_dump($row);
@@ -108,7 +112,10 @@ for ($i = $start;$i <= $start+5-1;$i++) {
 
 paging($limit, $page);
 //var_dump($page);
+?>
+</div>
 
+<?php
 function paging($limit, $page, $disp=5){
     //$dispはページ番号の表示数
     $next = $page + 1;
