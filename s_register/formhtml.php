@@ -177,13 +177,13 @@ pull_list($grade_array, $name2, $selected_value);
 		<tr>
 		<td width="200px" align="right">大学</td>
 		<td>
-		<input type="hidden" name="input_univ" value="<?php echo $univ_array["$input_univ"]; ?>"><?php echo $univ_array["$input_univ"];?>
+		<input type="hidden" name="input_univ" value="<?php echo $input_univ; ?>"><?php echo $univ_array["$input_univ"];?>
 		</td>
 		</tr>
 		<tr>
 		<td width="200px" align="right">学年</td>
 		<td>
-		<input type="hidden" name="input_grade" value="<?php echo $grade_array["$input_grade"]; ?>"><?php echo $grade_array["$input_grade"];?>
+		<input type="hidden" name="input_grade" value="<?php echo $input_grade; ?>"><?php echo $grade_array["$input_grade"];?>
 		</td>
 		</tr>
 		<tr>
