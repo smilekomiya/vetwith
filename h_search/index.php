@@ -14,6 +14,7 @@ $page_title = "病院検索";
 /* ヘッダーで読み込むファイル。このファイルからの相対パスで記述 */
 $header_file_tag = '<link href="../css/common.css" rel="stylesheet" type="text/css" />
 <link href="../css/form.css" rel="stylesheet" type="text/css" />
+<link href="../css/search.css" rel="stylesheet" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>';
 
 

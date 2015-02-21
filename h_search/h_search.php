@@ -30,6 +30,10 @@ while ($row[$index] = mysql_fetch_assoc($result)) {
 
 $start = ($page - 1) * $disp;
 
+?>
+<div id="searchcontents">
+<?php
+
 for ($i = $start;$i <= $start+5-1;$i++) {
   if(empty($row[$i])){
     break;
@@ -51,7 +55,7 @@ for ($i = $start;$i <= $start+5-1;$i++) {
             <table>
                 <tbody>
                     <tr>
-                        <td rowspan="4" width="250px"><img src="./image/hospital.jpg" width="250px" /></td>
+                        <td rowspan="4" width="250px"><img src="../image/hospital.jpg" width="250px" /></td>
                         <th width="140px">所在地</th>
                         <td width="250px">和歌山県岩出市川尻２１８−３</td>
                     </tr>
@@ -85,6 +89,11 @@ for ($i = $start;$i <= $start+5-1;$i++) {
 
 <?php
 }
+
+?>
+</div>
+<?php
+
 
 // エラー処理はあとでやろう
 

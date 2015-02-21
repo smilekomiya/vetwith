@@ -1,3 +1,9 @@
+div#searchcontents{
+	width: 90%;
+	margin: 0;
+	padding: 11px 0 0 0;
+}
+
 div.anken{
 	position: relative;
 	box-sizing: border-box;
