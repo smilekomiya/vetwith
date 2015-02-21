@@ -9,7 +9,7 @@
 //*****************************************************
 
 //このファイルまでのパス
-$path = "http://localhost/php/vet/s_register/";
+$path = "http://localhost/php/vet/h_register/";
 
 //debug_backtraceは連想配列で結果を返すよ。注意。
 $require_from = debug_backtrace();

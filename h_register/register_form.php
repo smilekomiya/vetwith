@@ -15,14 +15,14 @@ $errorFlag = true;
 require_once("../dbsetting/db.php");
 
 /* 取得したユニークIDをキーに登録されたメールアドレスを取得 */
-$query = "select email from members where pre_userid = '$pre_userid'";
+$query = "SELECT h_email FROM h_members WHERE pre_userid = '$pre_userid'";
 $result = mysql_query($query);
 
 /*データベースより取得したメールアドレスを表示*/
 if(mysql_num_rows($result) > 0) { //取得した結果のデータの数が0以上なら＝データが取得できた
   $errorFlag = false;
   $data = mysql_fetch_array($result);
-  $email = $data['email'];
+  $email = $data['h_email'];
 }
 
 if($errorFlag) {  // pre_useridが無効

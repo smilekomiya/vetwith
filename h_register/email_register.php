@@ -40,7 +40,7 @@ if($email == "" || !is_mail($email)){
 			mb_internal_encoding("utf-8");
 
 			$to = $email;
-			$subject = "VetWith学生登録フォームのご案内";
+			$subject = "VetWith動物病院登録フォームのご案内";
 			$message = "以下のURLより会員登録してください。\n"."http://localhost/php/vet/h_register/index.php?pre_userid=$pre_user_id";
 			$header = "From:test@test.com";
 			if(!mb_send_mail($to, $subject, $message, $header)){  //メール送信に失敗したら
