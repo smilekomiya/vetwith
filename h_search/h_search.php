@@ -11,7 +11,7 @@ $error = array();
 
 mysql_set_charset('utf8');
 //SQL文を発行
-$query = "SELECT h_id, h_name, h_email FROM h_members WHERE h_name like '%$search%'";
+$query = "SELECT * FROM h_members WHERE h_prefecture like '%$search%'";
 $result = mysql_query($query);
 
 //データの数
@@ -38,51 +38,49 @@ for ($i = $start;$i <= $start+5-1;$i++) {
   if(empty($row[$i])){
     break;
   }
+
+//print('<a href="./h_search_detail.php?h_id='.$row[$i]['h_id'].'" target="_self" value="h_search_detail">');
+
 ?>
-  print('<p>');
-  print('<a href="./h_search_detail.php?h_id='.$row[$i]['h_id'].'" target="_self" value="h_search_detail">');
-  print($row[$i]['h_name']);
-  print('</a>');
-  print(','.$row[$i]['h_email']);
-  print('</p>');
 
 
 
-        <div class="anken">
-        <h2 class="hospitalname"><a href="./hospital/hospital.php?name=animal">アニマル動物病院</a></h2>
-        <h3 class="copy">外科手術の施術件数は年間100件あります！臨床現場の体験に最適。</h3>
-        <div class="prefecture">和歌山</div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td rowspan="4" width="250px"><img src="../image/hospital.jpg" width="250px" /></td>
-                        <th width="140px">所在地</th>
-                        <td width="250px">和歌山県岩出市川尻２１８−３</td>
-                    </tr>
-                    <tr>
-                        <th>実習受け入れ期間</th>
-                        <td>2014年3月1日～2014年3月1日</td>
-                    </tr>
-                    <tr>
-                        <th>実習可能学年</th>
-                        <td>学部3年～学部5年</td>
-                    </tr>
-                    <tr>
-                        <th>実習応援金</th>
-                        <td>10,000円</td>
-                    </tr>
-                </tbody>
-            </table>
+
+<div class="anken">
+<h2 class="hospitalname"><a href="./hospital/hospital.php?name=animal"><?php print($row[$i]['h_name']); ?></a></h2>
+<h3 class="copy">外科手術の施術件数は年間100件あります！臨床現場の体験に最適。</h3>
+    <div class="prefecture"><?php print($row[$i]['h_prefecture']); ?></div>
+        <table>
+            <tbody>
+                <tr>
+                    <td rowspan="4" width="250px"><img src="../image/hospital.jpg" width="250px" /></td>
+                    <th width="140px">所在地</th>
+                    <td width="250px">和歌山県岩出市川尻２１８−３</td>
+                </tr>
+                <tr>
+                    <th>実習受け入れ期間</th>
+                    <td>2014年3月1日～2014年3月1日</td>
+                </tr>
+                <tr>
+                    <th>実習可能学年</th>
+                    <td>学部3年～学部5年</td>
+                </tr>
+                <tr>
+                    <th>実習応援金</th>
+                    <td>10,000円</td>
+                </tr>
+            </tbody>
+        </table>
             
-            <p class="pr">獣医師、看護師や受付、少人数で楽しく勤務しています。<br />患者は主に地域の小動物です。臨床現場を詳しく知りたい実習生を募集しています。
-            </p>
+        <p class="pr">獣医師、看護師や受付、少人数で楽しく勤務しています。<br />患者は主に地域の小動物です。臨床現場を詳しく知りたい実習生を募集しています。
+        </p>
             
-            <ul class="linknavi">
-                <li><a href="http://～">動物病院詳細</a></li>
-                <li><a href="http://～">実習詳細</a></li>
-            </ul>
+        <ul class="linknavi">
+            <li><a href="http://～">動物病院詳細</a></li>
+            <li><a href="http://～">実習詳細</a></li>
+        </ul>
             
-        </div><!-- anken -->
+    </div><!-- anken -->
 
 
 
@@ -105,7 +103,7 @@ for ($i = $start;$i <= $start+5-1;$i++) {
 //}
 
 paging($limit, $page);
-var_dump($page);
+//var_dump($page);
 
 function paging($limit, $page, $disp=5){
     //$dispはページ番号の表示数
