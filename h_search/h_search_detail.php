@@ -1,8 +1,20 @@
 <?php
-/* フォームから検索ワードを取得 */
-$search = $_POST["search"];
-//$page = $_GET["page"];
-$page = empty($_GET["page"])? 1:$_GET["page"];//ページ番号
+//ユーザー定義関数の読み込み
+require ("../php_function/all.php");
+
+//登録ページのタイトル
+$page_title = "病院情報詳細";
+
+/* ヘッダーで読み込むファイル。このファイルからの相対パスで記述 */
+$header_file_tag = '<link href="../css/common.css" rel="stylesheet" type="text/css" />
+<link href="../css/form.css" rel="stylesheet" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>';
+
+require_once("./upper.php");
+
+/* リンクから病院IDを取得 */
+$h_id = $_GET["h_id"];
+
 /* エラーメッセージ配列 */
 $error = array();
 
@@ -11,29 +23,25 @@ $error = array();
 
 mysql_set_charset('utf8');
 //SQL文を発行
-$query = "SELECT h_name, h_email FROM h_members WHERE h_name like '%$search%'";
+$query = "SELECT h_name, h_email FROM h_members WHERE h_id = '$h_id'";
 $result = mysql_query($query);
 
+$row = mysql_fetch_assoc($result);
+//var_dump($row);
+print('<div>');
+print('詳細');
+print('</div>');
 
-$index = 0;
-while ($row[$index] = mysql_fetch_assoc($result)) {
-    $index++;
-}
+print('<p>');
+print($row['h_name']);
+print(','.$row['h_email']);
+print('</p>');
 
-for ($i = $start;$i <= $start+5-1;$i++) {
-  if(empty($row[$i])){
-    break;
-  }
-  print('<p>');
-  print('<a href="http://www.yahoo.co.jp" target="_blank" value="h_search_detail">');
-  print($row[$i]['h_name']);
-  print('</a>');
-  print(','.$row[$i]['h_email']);
-  print('</p>');
-}
 
 // エラー処理はあとでやろう
 
 //var_dump($row);
+
+require_once("./lower.php");
 
 ?>

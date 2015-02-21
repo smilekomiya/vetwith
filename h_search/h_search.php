@@ -35,7 +35,7 @@ for ($i = $start;$i <= $start+5-1;$i++) {
     break;
   }
   print('<p>');
-  print('<a href="./h_search_detail.php?h_id='.$row[$i]['h_id'].'" target="_blank" value="h_search_detail">');
+  print('<a href="./h_search_detail.php?h_id='.$row[$i]['h_id'].'" target="_self" value="h_search_detail">');
   print($row[$i]['h_name']);
   print('</a>');
   print(','.$row[$i]['h_email']);
