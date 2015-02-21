@@ -38,6 +38,9 @@ switch($mode || isset($page)) {
   case "h_search":
   $module = "h_search.php";
   break;
+  //case "h_search_detail"
+  //$module = "";
+  //break;
 
   //病院検索トップ
   default:
