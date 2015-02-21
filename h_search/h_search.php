@@ -55,15 +55,15 @@ for ($i = $start;$i <= $start+5-1;$i++) {
                 <tr>
                     <td rowspan="4" width="250px"><img src="../image/hospital.jpg" width="250px" /></td>
                     <th width="140px">所在地</th>
-                    <td width="250px">和歌山県岩出市川尻２１８−３</td>
+                    <td width="250px"><?php print($row[$i]['h_prefecture'].$row[$i]['h_address']); ?></td>
                 </tr>
                 <tr>
-                    <th>実習受け入れ期間</th>
-                    <td>2014年3月1日～2014年3月1日</td>
+                    <th>電話番号</th>
+                    <td><?php print($row[$i]['h_tel']); ?></td>
                 </tr>
                 <tr>
-                    <th>実習可能学年</th>
-                    <td>学部3年～学部5年</td>
+                    <th>e-mail</th>
+                    <td><?php print($row[$i]['h_email']); ?></td>
                 </tr>
                 <tr>
                     <th>実習応援金</th>
