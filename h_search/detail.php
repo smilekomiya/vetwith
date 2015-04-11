@@ -28,6 +28,10 @@ $result = mysql_query($query);
 
 //データの数
 $dataCount = mysql_num_rows($result);
+$index = 0;
+while ($row[$index] = mysql_fetch_assoc($result)) {
+    $index++;
+}
 ?>
 
 
@@ -38,6 +42,25 @@ if ($dataCount == 0) {
     print('<p>案件詳細</p>');
 }
 ?>
+<div id="searchcontents">
+
+<?php
+for ($i=0; $i < $dataCount; $i++) {
+  if(empty($row[$i])){
+    break;
+  }
+?>
+
+テスト表示<br>
+start:<?php print($row[$i]['start']); ?><br>
+end:<?php print($row[$i]['end']); ?><br>
+期間:<?php print($row[$i]['duration']); ?><br>
+説明:<?php print($row[$i]['description']); ?><br>
+
+<?php
+}
+?>
+</div>
 
 
 <?php
