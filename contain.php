@@ -47,14 +47,15 @@ switch($mode){
 <?php
 	echo $page_title." | VetWith!";
 ?>
+</title>
 <style type="text/css">
-/* 自由に編集下さい */
 #formWrap {
 	width:700px;
-	margin:0 auto;
+	margin:0;
 	color:#555;
 	line-height:120%;
 	font-size:90%;
+	padding: 30px 0 30px 100px;
 }
 table.formTable{
 	width:100%;
@@ -76,7 +77,6 @@ p.error_messe{
 	color:red;
 }
 </style>
-</title>
 <?php echo $header_file_tag; ?>
 <script>
 //スムーズスクロール
