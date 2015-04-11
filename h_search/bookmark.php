@@ -15,8 +15,8 @@ require_once("./upper.php");
 /* フォームから検索ワードを取得 */
 $h_id = $_GET['h_id'];
 $anken_id = $_GET['anken'];
-var_dump($h_id);
-var_dump($anken_id);
+//var_dump($h_id);
+//var_dump($anken_id);
 
 /* エラーメッセージ配列 */
 $error = array();
@@ -30,7 +30,7 @@ mysql_set_charset('utf8');
 $check_query = "SELECT * FROM bookmark WHERE user_id = 1234 and anken_id = '$anken_id'";
 $result = mysql_query($check_query);
 $dataCount = mysql_num_rows($result);
-var_dump($dataCount);
+//var_dump($dataCount);
 if ($dataCount == 0) {
 //SQL文を発行
 $query = "INSERT INTO bookmark (
@@ -47,9 +47,9 @@ var_dump($anken_id);
 } else {
 	echo 'ブックマーク登録済みです';
 }
-
 ?>
-
+<br>
+<a href="<?php echo $_SERVER['HTTP_REFERER'] ?>">戻る</a>
 </div>
 
 
