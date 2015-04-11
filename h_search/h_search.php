@@ -55,7 +55,7 @@ for ($i = $start;$i <= $start+5-1;$i++) {
 
 
 <div class="anken">
-<h2 class="hospitalname"><a href="./hospital/hospital.php?name=animal"><?php print($row[$i]['h_name']); ?></a></h2>
+<h2 class="hospitalname"><a href="./hospital/hospital.php?name=animal"><?php print($row[$i]['h_name']); ?></a></h2><a>add to favorite</a>
 <h3 class="copy">外科手術の施術件数は年間100件あります！臨床現場の体験に最適。</h3>
     <div class="prefecture"><?php print($row[$i]['h_prefecture']); ?></div>
         <table>
@@ -82,10 +82,9 @@ for ($i = $start;$i <= $start+5-1;$i++) {
             
         <p class="pr">獣医師、看護師や受付、少人数で楽しく勤務しています。<br />患者は主に地域の小動物です。臨床現場を詳しく知りたい実習生を募集しています。
         </p>
-            
         <ul class="linknavi">
             <li><a href="http://～">動物病院詳細</a></li>
-            <li><a href="http://～">実習詳細</a></li>
+            <li><a href="./detail.php?h_id=<?php echo $row[$i]['h_id']; ?>" >実習詳細</a></li>
         </ul>
             
     </div><!-- anken -->
