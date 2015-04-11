@@ -1,10 +1,9 @@
 <?php 
 //*****************************************************
-//yuzuyuzu
 //
 //登録フォームとその確認フォーム。
 //
-//register_form.phpやregister_confirm.phpなどに読み込まれる。
+//register_form.phpやregister_confirm.phpに読み込まれる。
 //
 //*****************************************************
 
@@ -71,7 +70,6 @@ $grade_array = array(
 	"9" => "博士3年",
 	"10" => "博士4年"
 );
-
 
 if($form_style == "register_form"){
 ?>

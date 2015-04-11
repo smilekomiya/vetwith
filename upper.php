@@ -1,12 +1,20 @@
 <?php
 //*****************************************************
 //
-//登録orログインページの共通アッパー部分。
+//問い合わせやサイトマップなんかに使う共通部分。だよー。
 //
 //*****************************************************
+
+//このファイルまでのパス
+$path = "http://localhost/php/vet/";
+
+//debug_backtraceは連想配列で結果を返すよ。注意。
+$require_from = debug_backtrace();
+
+
 /* ヘッダーで読み込むファイル。このファイルからの相対パスで記述 */
-$header_file_tag = '<link href="../css/common.css" rel="stylesheet" type="text/css" />
-<link href="../css/form.css" rel="stylesheet" type="text/css" />
+$header_file_tag = '<link href="./css/common.css" rel="stylesheet" type="text/css" />
+<link href="./css/form.css" rel="stylesheet" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>';
 
 //タイトル
@@ -74,3 +82,24 @@ $(function(){
 	<h1><?php echo $page_title; ?></h1>
 	
 		<div class="regi_form">
+		
+		
+		
+		
+		
+		
+		
+		</div><!-- regi_form -->
+</div><!-- main -->
+</div><!-- wrapper -->
+
+<div id="footer">
+(C) Copyright VetWith All Right Reserved.
+</div><!-- footer -->
+
+</div><!-- outest -->
+
+
+
+</body>
+</html>

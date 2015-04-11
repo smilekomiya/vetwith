@@ -4,16 +4,8 @@
 	<p>
 		<form action="index.php" method="post">
 			<input type="hidden" name="mode" value="email_register" />
-			<table>
-				<caption>メールアドレス登録フォーム</caption>
-				<tr>
-					<td class="item">Email:</td>
-					<td><input type="text" name="email" size="40" /></td>
-				</tr>
-			</table>
-			<div>
-			<input type="submit" name="submit" value="送信" /></div>
-			</div>
+			<input type="text" name="email" size="40" />
+			<input type="submit" name="submit" value="送信" />
 		</form>
 	</p>
 </div>

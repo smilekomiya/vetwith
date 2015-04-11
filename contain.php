@@ -1,11 +1,83 @@
+<?php
+//*****************************************************
+//
+//問い合わせやサイトマップなんかに使う共通部分。だよー。
+//
+//*****************************************************
+//ユーザー定義関数の読み込み
+require ("./php_function/all.php");
+
+/* ヘッダーで読み込むファイル。このファイルからの相対パスで記述 */
+$header_file_tag = '<link href="./css/common.css" rel="stylesheet" type="text/css" />
+<link href="./css/form.css" rel="stylesheet" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>';
+
+//モード分けー。
+if(isset($_GET["mode"])){
+	$mode = $_GET["mode"];
+}else{
+	header("Location:./index.php");
+	exit();
+}
+
+
+//タイトル
+if($mode == "contact"){
+	$page_title = "お問い合わせ";
+}
+
+//振り分け処理
+switch($mode){
+	case"contact":
+	$module = "contact.php";
+	break;
+	
+	default:
+	header("Location:./index.php");
+	exit();
+	break;
+}
+
+
+?>
+
 <html>
 <head>
-<title>動物病院登録フォーム | VetWith!</title>
-<link href="./css/common.css" rel="stylesheet" type="text/css" />
-<link href="./css/form.css" rel="stylesheet" type="text/css" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script type='text/javascript' src='http://code.jquery.com/jquery-git2.js'></script>
-<script type="text/javascript" src="http://jpostal.googlecode.com/svn/trunk/jquery.jpostal.js"></script>
+<title>
+<?php
+	echo $page_title." | VetWith!";
+?>
+<style type="text/css">
+/* 自由に編集下さい */
+#formWrap {
+	width:700px;
+	margin:0 auto;
+	color:#555;
+	line-height:120%;
+	font-size:90%;
+}
+table.formTable{
+	width:100%;
+	margin:0 auto;
+	border-collapse:collapse;
+}
+table.formTable td,table.formTable th{
+	border:1px solid #ccc;
+	padding:10px;
+}
+table.formTable th{
+	width:30%;
+	font-weight:normal;
+	background:#efefef;
+	text-align:left;
+}
+p.error_messe{
+	margin:5px 0;
+	color:red;
+}
+</style>
+</title>
+<?php echo $header_file_tag; ?>
 <script>
 //スムーズスクロール
 $(function(){
@@ -34,7 +106,7 @@ $(function(){
 
 <div id="topNavi">
 	<div id="within">
-		<a href="#">
+		<a href="./index.php">
 			<img src="./image/logo.png" height="50px" alt="VetWith!" style="float: left;" />
 		</a>
 		<ul>
@@ -48,22 +120,20 @@ $(function(){
 	
 </div><!-- topNavi -->
 <div id="wrapper">
-
-	<div id="pan"><a href="./index.php">VetWithホーム</a>　> 動物病院登録</div>
-	
+	<div id="pan"><a href="../index.php">VetWithホーム</a>　> <?php echo $page_title; ?></div>
 	<div id="main">
-	<h1>動物病院登録</h1>
-	<P>以下の内容を入力してください。</p>
+	<h1><?php echo $page_title; ?></h1>
 	
 		<div class="regi_form">
+		<?php require_once("$module");?>
 		
-		</div>
-	</div>
-	
-	
-
-
-	
+		
+		
+		
+		
+		
+		</div><!-- regi_form -->
+</div><!-- main -->
 </div><!-- wrapper -->
 
 <div id="footer">

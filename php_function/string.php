@@ -11,7 +11,8 @@
 //英数字チェック
 //ユーザーIDチェック
 //カタカナチェック
-//ハッシュ化した値を返す。
+//C:\user\user\...　→ http://user/user/
+//ハッシュ化した値を返す（パスワード）。
 //*****************************************************
 //【要設定項目】
 //トップページまでのパス
@@ -19,6 +20,7 @@ $path_to_hp = 'C:\\xampp\\htdocs\\php\\vet\\';
 //トップページまでの絶対URL
 $url_to_hp = 'http://localhost/php/vet/';
 
+//*****************************************************
 
 //HTMLタグエスケープ
 function h($str){
@@ -89,7 +91,7 @@ function is_kana($str){
 //C:\xampp\htdocs\php\vet\・・・のままだからhttp://localhost・・・の形に変えてあげる
 function c_to_http($path){
 	if(preg_match('/^C:/', "$path")){ //$pathがC:\で始まるなら・・・
-		global $path_to_hp, $url_to_hp; //グローバルキーワード
+		global $path_to_hp, $url_to_hp; //グローバル変数たい。
 		$not_needed_part = mb_strlen($path_to_hp);
 		$cut_path = substr($path, $not_needed_part); //パスからC:\ ・・・　\vet\までを切り取る。
 		$transformed_url = $url_to_hp.$cut_path;
@@ -102,17 +104,21 @@ function c_to_http($path){
 
 //ハッシュ化した値を返す
 function pass_cipher($password, $email){
-	$account = explode("@", "$email");//メールアドレスをアットマークの前で切断。
-	$account_length = strlen($account[0]);
-	if($account_length > 3){
-		$salt = substr($account[0], 0, 4);//切断したものの長さが4文字以上だったら、前４文字を取得。
+	if(empty($password) || empty($email)){
+		return "ERROR";
 	}else{
-		$shibata = NULL;
-		for($i = $account_length; $i < 4; $i++){//4文字未満だったら、４文字になるように「s」を追加する。
-			$shibata .= "s";
+		$account = explode("@", "$email");//メールアドレスをアットマークの前で切断。
+		$account_length = strlen($account[0]);
+		if($account_length > 3){
+			$salt = substr($account[0], 0, 4);//切断したものの長さが4文字以上だったら、前４文字を取得。
+		}else{
+			$shibata = NULL;
+			for($i = $account_length; $i < 4; $i++){//4文字未満だったら、４文字になるように「s」を追加する。
+				$shibata .= "s";
+			}
+			$salt = $account[0].$shibata;
 		}
-		$salt = $account[0].$shibata;
+		 return sha1($salt.$password.$salt);
 	}
-	 return sha1($salt.$password.$salt);
 }
 ?>

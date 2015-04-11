@@ -60,17 +60,19 @@ $(function(){
 	<h3 id="loginribon">ログイン</h3>
 	
 	<div id="loginform">
-	<form action="login.php" method="post">
-		<label for="userid">ユーザーID</label>：
-		<input type="text" name="formUserid" id="userid"/>
+	<form action="./s_register/index.php" method="post">
+		<input type="hidden" name="mode" value="s_login">
+		<label for="Email">メールアドレス</label><br />
+		<input type="text" name="formEmail" id="Email"/>
 		<br />
-		<label for="password">パスワード</label>：
-		<input type="text" name="formPassword" id="password"/>
-		<br />
+		<label for="Password">パスワード</label><br />
+		<input type="text" name="formPassword" id="Password"/>
 	<input type="submit" name="login" value="ログイン" />
 	</form>
 	<p><span style="font-size: 80%;">ログインすることで、実習のエントリーなど動物病院の検索以外の機能を使えるようになります。</p>
-	<p><a href="./s_register/index.php">→新規登録する</a></p>
+	<p><a href="./s_register/index.php">→新規登録する</a><br />
+	<a href="./s_register/index.php?mode=resend">→パスワードを忘れた？</a>
+	</p>
 	</div>
 	
 	<div class="notion">
