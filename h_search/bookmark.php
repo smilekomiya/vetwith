@@ -13,7 +13,10 @@ $header_file_tag = '<link href="../css/common.css" rel="stylesheet" type="text/c
 require_once("./upper.php");
 
 /* フォームから検索ワードを取得 */
-$h_id = $_GET["h_id"];
+$h_id = $_GET['h_id'];
+$anken_id = $_GET['anken'];
+var_dump($h_id);
+var_dump($anken_id);
 
 /* エラーメッセージ配列 */
 $error = array();
@@ -22,46 +25,31 @@ $error = array();
 @require_once("../dbsetting/db.php");
 
 mysql_set_charset('utf8');
-//SQL文を発行
-$query = "SELECT * FROM anken WHERE h_id = '$h_id'";
-$result = mysql_query($query);
 
-//データの数
+// 重複チェック
+$check_query = "SELECT * FROM bookmark WHERE user_id = 1234 and anken_id = '$anken_id'";
+$result = mysql_query($check_query);
 $dataCount = mysql_num_rows($result);
-$index = 0;
-while ($row[$index] = mysql_fetch_assoc($result)) {
-    $index++;
-}
-?>
-
-
-<?php
+var_dump($dataCount);
 if ($dataCount == 0) {
-    print('<p>案件無し</p>');
+//SQL文を発行
+$query = "INSERT INTO bookmark (
+user_id,
+anken_id
+) VALUES (
+1234,
+'$anken_id'
+)";
+
+$result = mysql_query($query);
+echo 'ブックマーク登録完了';
+var_dump($anken_id);
 } else {
-    print('<p>案件詳細</p>');
+	echo 'ブックマーク登録済みです';
 }
-?>
-<div id="searchcontents">
 
-<?php
-for ($i=0; $i < $dataCount; $i++) {
-  if(empty($row[$i])){
-    break;
-  }
 ?>
 
-テスト表示<br>
-start:<?php print($row[$i]['start']); ?><br>
-end:<?php print($row[$i]['end']); ?><br>
-期間:<?php print($row[$i]['duration']); ?><br>
-説明:<?php print($row[$i]['description']); ?><br>
-<a href="./bookmark.php?h_id=<?php echo $h_id ?>&anken=<?php echo $row[$i]['anken_id'] ?>">add to favorite</a><br>
-<br>
-
-<?php
-}
-?>
 </div>
 
 
