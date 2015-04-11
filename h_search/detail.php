@@ -56,6 +56,8 @@ start:<?php print($row[$i]['start']); ?><br>
 end:<?php print($row[$i]['end']); ?><br>
 期間:<?php print($row[$i]['duration']); ?><br>
 説明:<?php print($row[$i]['description']); ?><br>
+<a href="">add to favorite</a><br>
+<br>
 
 <?php
 }
