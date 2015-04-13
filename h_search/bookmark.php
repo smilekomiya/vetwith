@@ -27,14 +27,14 @@ $error = array();
 mysql_set_charset('utf8');
 
 // 重複チェック
-$check_query = "SELECT * FROM bookmark WHERE user_id = 1234 and anken_id = '$anken_id'";
+$check_query = "SELECT * FROM bookmark WHERE member_id = 1234 and anken_id = '$anken_id'";
 $result = mysql_query($check_query);
 $dataCount = mysql_num_rows($result);
 //var_dump($dataCount);
 if ($dataCount == 0) {
 //SQL文を発行
 $query = "INSERT INTO bookmark (
-user_id,
+member_id,
 anken_id
 ) VALUES (
 1234,
