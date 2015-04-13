@@ -1,6 +1,11 @@
 <?php
 /* フォームから検索ワードを取得 */
 $search = $_POST["search"];
+if(empty($search)){
+    $search = $_GET["search"];
+    //var_dump($search);
+}
+
 //$page = $_GET["page"];
 $page = empty($_GET["page"])? 1:$_GET["page"];//ページ番号
 /* エラーメッセージ配列 */
@@ -55,7 +60,7 @@ for ($i = $start;$i <= $start+5-1;$i++) {
 
 
 <div class="anken">
-<h2 class="hospitalname"><a href="./hospital/hospital.php?name=animal"><?php print($row[$i]['h_name']); ?></a></h2><a>add to favorite</a>
+<h2 class="hospitalname"><a href="./hospital/hospital.php?name=animal"><?php print($row[$i]['h_name']); ?></a></h2>
 <h3 class="copy">外科手術の施術件数は年間100件あります！臨床現場の体験に最適。</h3>
     <div class="prefecture"><?php print($row[$i]['h_prefecture']); ?></div>
         <table>
@@ -109,13 +114,13 @@ for ($i = $start;$i <= $start+5-1;$i++) {
 //  $page = 1;
 //}
 
-paging($limit, $page);
+paging($limit, $page, $search);
 //var_dump($page);
 ?>
 </div>
 
 <?php
-function paging($limit, $page, $disp=5){
+function paging($limit, $page, $search, $disp=5){
     //$dispはページ番号の表示数
     $next = $page + 1;
     $prev = $page - 1;
@@ -126,12 +131,12 @@ function paging($limit, $page, $disp=5){
     $start = ($limit < $end)? $start-($end-$limit):$start;//始点再計算
      
     if($page != 1 ) {
-         print '<a href="?page='.$prev.'">&laquo; 前へ</a>';
+         print '<a href="?page='.$prev.'&search='.$search.'">&laquo; 前へ</a>';
     }
 
     //最初のページへのリンク
     if($start >= floor($disp/2)){
-        print '<a href="?page=1">1</a>';
+        print '<a href="?page=1&search='.$search.'">1</a>';
         if($start > floor($disp/2)) print "..."; //ドットの表示
     }
      
@@ -141,18 +146,18 @@ function paging($limit, $page, $disp=5){
         $class = ($page == $i) ? ' class="current"':"";//現在地を表すCSSクラス
          
         if($i <= $limit && $i > 0 )//1以上最大ページ数以下の場合
-            print '<a href="?page='.$i.'"'.$class.'>'.$i.'</a>';//ページ番号リンク表示
+            print '<a href="?page='.$i.'&search='.$search.'"'.$class.'>'.$i.'</a>';//ページ番号リンク表示
          
     }
-     
+    
     //最後のページへのリンク
     if($limit > $end){
         if($limit-1 > $end ) print "...";    //ドットの表示
-        print '<a href="?page='.$limit.'">'.$limit.'</a>';
+        print '<a href="?page='.$limit.'&search='.$search.'">'.$limit.'</a>';
     }
          
     if($page < $limit){
-        print '<a href="?page='.$next.'">次へ &raquo;</a>';
+        print '<a href="?page='.$next.'&search='.$search.'">次へ &raquo;</a>';
     }
      
     /*確認用
