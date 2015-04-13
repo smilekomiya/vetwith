@@ -8,7 +8,9 @@ $db['dbname'] = "vetwith";
 $conn = mysql_connect($db['server'],$db['user'],$db['pass']);
 mysql_select_db($db['dbname'], $conn); 
 
-//PDOクラスDSN
+
+
+/*//PDOクラスDSN
 $dsn = 'mysql:dbname=vetwith;host=localhost';
 $user = 'root';
 $password = '1234';
@@ -19,4 +21,5 @@ try{
 	print('Connection failed:'.$e->getMessage());
 	die();
 }
+*/
 ?>

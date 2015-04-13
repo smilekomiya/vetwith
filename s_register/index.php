@@ -6,6 +6,7 @@
 //あとパスワードの再発行も。
 //要設定項目あり！
 //*****************************************************
+session_start();
 
 //ユーザー定義関数の読み込み
 require ("../php_function/all.php");
@@ -21,6 +22,8 @@ if(isset($_POST["mode"])){
 	$mode = $_POST["mode"];
 }elseif($_GET["mode"] == "resend"){
 	$mode = $_GET["mode"];
+}elseif($_GET["mode"] == "s_logout"){
+	$mode = "s_logout";
 }
 
 /* パラメーターに　pre_useridがあれば学生登録フォームを表示。 */
@@ -58,6 +61,11 @@ switch($mode){
 	//ログイン
 	case"s_login":
 	$module = "login.php";
+	break;
+	
+	//ログアウト
+	case"s_logout":
+	$module = "logout.php";
 	break;
 	
 	//パスワード再送

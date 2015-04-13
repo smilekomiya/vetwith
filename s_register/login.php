@@ -3,16 +3,20 @@
 //
 //学生ログインシステム
 //
+//余裕のあるときにDBを使った自動ログインも（クッキー）。↓
+//http://blog.ohgaki.net/wrong-auto-login-the-answer
 //*****************************************************
 session_start();
 
-if(!isset($_POST['login'])){//ログインボタン押されていない＝直接アクセスされたケース
+require_once("../php_function/all.php");
+
+if(!isset($_POST["login"])){//ログインボタン押されていない＝直接アクセスされたケース
 	header("Location:../index.php");
 }else{
 	
-	if(isset($_POST['formEmail']) && isset($_POST['formPassword'])){
-		$formEmail = $_POST['formEmail'];
-		$formPassword = $_POST['formPassword'];
+	if(isset($_POST["formEmail"]) && isset($_POST["formPassword"])){
+		$formEmail = $_POST["formEmail"];
+		$formPassword = $_POST["formPassword"];
 	}
 	
 	if(($formEmail == "") || ($formPassword == "")){
@@ -21,7 +25,7 @@ if(!isset($_POST['login'])){//ログインボタン押されていない＝直�
   
 	}else{//データベース接続
 	
-		require_once('../dbsetting/db.php');
+		require_once("../dbsetting/db.php");
 
 		$query = "SELECT * FROM members WHERE email = '$formEmail'";
 		$result = mysql_query($query);
@@ -34,24 +38,44 @@ if(!isset($_POST['login'])){//ログインボタン押されていない＝直�
 		}else{//ちゃんとメールアドレスが１件登録されているケース
 			
 			while($data = mysql_fetch_assoc($result)){
-				if($data['email'] == $formEmail) {
-					$dbPassword = $data['password'];
+				if($data["email"] == $formEmail) {
+					$dbPassword = $data["password"];
 					break;
 				}
 			}
-			
-			mysql_close($conn);
 
 			if(!isset($dbPassword)){
 				error("incorrect");
+				mysql_close($conn);
 			}else{
 				$hashed_Password = pass_cipher($formPassword, $formEmail);
 				
 				if($dbPassword != $hashed_Password){
 					error("incorrectPassword");
-				}else{
-					$_SESSION['loginUser'] = $formEmail;
-					header("Location:../index.php");
+					mysql_close($conn);
+				}else{ //ログイン処理
+					
+					$queryId = "SELECT * FROM members WHERE email = '$formEmail'";
+					$resultId = mysql_query($queryId);
+					
+					if($resultId){
+						$data = mysql_fetch_assoc($resultId);
+						
+						mysql_close($conn);
+						
+						//セッション変数セット
+						$_SESSION["memberid"] = $data["memberid"];
+						$_SESSION["l_name"] = $data["l_name"];
+						$_SESSION["loginUser"] = $formEmail;
+						
+						header("Location:../index.php");
+						exit();
+					}else{
+						echo mysql_error();
+						echo $queryId;
+						error(others);
+						mysql_close($conn);
+					}
 				}	
 			}
 		}	
@@ -74,6 +98,10 @@ function error($errorType){
     case "incorrectPassword":
     $errorMsg = "パスワードが違います。<br />";
     break;
+
+    case "others":
+    $errorMsg = "エラー<br />";
+    break;	
 	
 	default:
 	$errorMsg = "ｖ＾＾ｖ<br />";
@@ -90,3 +118,5 @@ function error($errorType){
 	
 	<p><a href="./index.php?mode=resend">→メールアドレス、パスワードを忘れた。</a></p>
 </div>
+
+

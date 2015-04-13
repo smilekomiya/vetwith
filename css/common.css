@@ -387,7 +387,7 @@ input[type="image"]:hover {
 	border-radius:8px;
 	box-sizing: border-box;
 	width: 100%;
-	padding: 13px 5px 5px 5px;
+	padding: 8px 5px 5px 5px;
 	background-color: #cdcdcd;
 }
 
@@ -407,4 +407,32 @@ input[type="image"]:hover {
 	border-radius: 40px 0 0 40px;
 	background-color: #ff9900;
 	z-index: 0;
+}
+
+h4.midashi{
+    position: relative;
+    padding-left: 45px;
+    color: #333333;
+	background-color: #eeeeee;
+	border-radius: 10px;
+}
+
+h4.midashi:before{
+    position: absolute;
+    top: 2px;
+    left: 12px;
+    width: 14px;
+    height: 14px;
+    border: 4px solid #ffcc00;
+    content: "";
+}
+
+h4.midashi:after{
+    position: absolute;
+    top: -8px;
+    left: 2px;
+    width: 17px;
+    height: 17px;
+    border: 4px solid #ff6600;
+    content: "";
 }

@@ -1,3 +1,11 @@
+<?php
+//*****************************************************
+//
+//トップページだよ！！
+//
+//*****************************************************
+session_start();
+?>
 <html>
 <head>
 <title>獣医学生と動物病院を結ぶVetWith!</title>
@@ -57,22 +65,46 @@ $(function(){
 	
 	<div id="menu">
 	
-	<h3 id="loginribon">ログイン</h3>
+	<h3 id="loginribon">
+	<?php 
+	if(empty($_SESSION["memberid"])){
+		echo "ログイン";
+	}else{
+		echo $_SESSION["l_name"]."<span style=\"font-size:60%;\">さん、こんにちは！</span> "." <a href=\"./s_register/index.php?mode=s_logout\"><span style=\"font-size:60%;\">【ログアウト】</span></a>";
+	}
+	?>
+	</h3>
 	
 	<div id="loginform">
+	<?php
+	if(empty($_SESSION["memberid"])){
+	?>
 	<form action="./s_register/index.php" method="post">
-		<input type="hidden" name="mode" value="s_login">
+		<input type="hidden" name="mode" value="s_login" />
 		<label for="Email">メールアドレス</label><br />
 		<input type="text" name="formEmail" id="Email"/>
 		<br />
 		<label for="Password">パスワード</label><br />
-		<input type="text" name="formPassword" id="Password"/>
-	<input type="submit" name="login" value="ログイン" />
+		<input type="text" name="formPassword" id="Password" />		
+		<input type="submit" name="login" value="ログイン" />
 	</form>
 	<p><span style="font-size: 80%;">ログインすることで、実習のエントリーなど動物病院の検索以外の機能を使えるようになります。</p>
 	<p><a href="./s_register/index.php">→新規登録する</a><br />
 	<a href="./s_register/index.php?mode=resend">→パスワードを忘れた？</a>
 	</p>
+	<?php
+	}else{
+	?>
+	<h4 class="midashi">お気に入りに追加した実習</h4>
+	<a href="./favorite.php">A実習</a><br />
+	<a href="./favorite.php">B実習</a><br />
+	<a href="./favorite.php">C実習</a><br />
+	<p>
+		<a href="">詳細を表示する。</a>
+	</p>
+	<?php
+	}
+	?>
 	</div>
 	
 	<div class="notion">

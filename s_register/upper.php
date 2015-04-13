@@ -12,8 +12,11 @@ $header_file_tag = '<link href="../css/common.css" rel="stylesheet" type="text/c
 //タイトル
 if($mode == "s_login"){
 	$page_title = "ログイン";
+}elseif($mode == "s_logout"){
+	$page_title = "ログアウト";
 }elseif($mode == "resend" || $mode == "reissue"){
 	$page_title = "パスワード再発行";
+	
 }else{
 	$page_title ="学生登録";
 }
