@@ -1,6 +1,34 @@
+<?php
+//*****************************************************
+//
+//登録orログインページの共通アッパー部分。
+//
+//*****************************************************
+/* ヘッダーで読み込むファイル。このファイルからの相対パスで記述 */
+$header_file_tag = '<link href="../css/common.css" rel="stylesheet" type="text/css" />
+<link href="../css/form.css" rel="stylesheet" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>';
+
+//タイトル
+if($mode == "h_login"){
+	$page_title = "ログイン";
+}elseif($mode == "h_logout"){
+	$page_title = "ログアウト";
+}elseif($mode == "resend" || $mode == "reissue"){
+	$page_title = "パスワード再発行";
+	
+}else{
+	$page_title ="病院登録";
+}
+?>
+
 <html>
 <head>
-<title><?php echo $page_title; ?> | VetWith!</title>
+<title>
+<?php
+	echo $page_title." | VetWith!";
+?>
+</title>
 <?php echo $header_file_tag; ?>
 <script>
 //スムーズスクロール
@@ -47,6 +75,5 @@ $(function(){
 	<div id="pan"><a href="../index.php">VetWithホーム</a>　> <?php echo $page_title; ?></div>
 	<div id="main">
 	<h1><?php echo $page_title; ?></h1>
-	<P>以下の内容を入力してください。</p>
 	
 		<div class="regi_form">

@@ -70,9 +70,8 @@ if(!isset($_POST["login"])){//ログインボタン押されていない＝直�
 						
 						header("Location:../index.php");
 						exit();
+						
 					}else{
-						echo mysql_error();
-						echo $queryId;
 						error(others);
 						mysql_close($conn);
 					}
@@ -100,7 +99,7 @@ function error($errorType){
     break;
 
     case "others":
-    $errorMsg = "エラー<br />";
+    $errorMsg = "データベースのエラーです。御手数ですがもう一度お試しください。<br />";
     break;	
 	
 	default:

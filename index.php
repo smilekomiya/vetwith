@@ -5,6 +5,29 @@
 //
 //*****************************************************
 session_start();
+
+//ログイン済みの処理
+if(isset($_SESSION["memberid"])){
+	
+	//ブックマーク案件の抽出
+	$queryFav = "SELECT * FROM bookmark WHERE memberid = '$_SESSION['memberid']'";
+	$resurtFav = mysql_query($resultFav);
+	if($resurtFav){
+		
+		//データ件数
+		$numberFav = mysql_num_rows($resultFav);
+		
+		//ブックマーク案件毎に、「案件名」と「案件」
+		while($data = mysql_fetch_assoc($resultFav)){
+			foreach($data as $key => $val){
+				
+			}
+		}
+		
+	}
+	
+}
+
 ?>
 <html>
 <head>
