@@ -36,9 +36,9 @@ if(isset($_GET["reissueid"])){
 	$mode = "resend";
 }
 
-/* 振り分け処理 */
+
 switch($mode){
-  // メールアドレスの登録と仮ID送信
+	//メールアドレス登録、仮ID発行
 	case"email_register":
 	$module = "email_register.php";
 	break;
@@ -83,8 +83,6 @@ switch($mode){
 	$module = "email_form.php";
 	break;
 }
-
-	// コンテンツ（表示ページ）読み込み
 	require_once("./upper.php");
 	require_once($module);
 	require_once("./lower.php");

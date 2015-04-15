@@ -64,11 +64,11 @@ if(!isset($_POST["login"])){//ログインボタン押されていない＝直�
 						mysql_close($conn);
 						
 						//セッション変数セット
-						$_SESSION["memberid"] = $data["memberid"];
-						$_SESSION["l_name"] = $data["l_name"];
-						$_SESSION["loginUser"] = $formEmail;
+						$_SESSION["h_id"] = $data["h_id"];
+						$_SESSION["h_name"] = $data["name"];
+						$_SESSION["h_email"] = $formEmail;
 						
-						header("Location:../index.php");
+						header("Location:../hospital/index.php?mode=mypage");
 						exit();
 						
 					}else{

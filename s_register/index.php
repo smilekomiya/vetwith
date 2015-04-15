@@ -36,7 +36,7 @@ if(isset($_GET["reissueid"])){
 	$mode = "resend";
 }
 
-/* 振り分け処理 */
+
 switch($mode){
   // メールアドレスの登録と仮ID送信
 	case"email_register":

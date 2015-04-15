@@ -17,7 +17,8 @@ if($queryKey != "ok"){
 ?>
 <div id="formWrap">
   <h1>お問い合わせ</h1>
-  <p>下記フォームに必要事項を入力後、確認ボタンを押してください。</p>
+  <p>下記フォームをすべて入力後、確認ボタンを押してください。</p>
+  
   <form method="post" action="contain.php?mode=contact">
     <table class="formTable">
       <tr>
@@ -29,12 +30,12 @@ if($queryKey != "ok"){
       <tr>
         <th>お名前</th>
         <td>
-			<input size="20" type="text" name="お名前" /> ※必須
+			<input size="20" type="text" name="お名前" />
 		</td>
       </tr>
       <tr>
         <th>Mail（半角）</th>
-        <td><input size="30" type="text" name="Email" /> ※必須</td>
+        <td><input size="30" type="text" name="Email" /></td>
       </tr>
       <tr>
       <tr>

@@ -63,7 +63,7 @@ $(function(){
 
 <div id="topNavi">
 	<div id="within">
-		<a href="../index.php">
+		<a href="./index.php">
 			<img src="../image/logo.png" height="50px" alt="VetWith!" style="float: left;" />
 		</a>
 		<ul>
@@ -77,7 +77,7 @@ $(function(){
 	
 </div><!-- topNavi -->
 <div id="wrapper">
-	<div id="pan"><a href="../index.php">VetWithホーム</a>　> <?php echo $page_title; ?></div>
+	<div id="pan"><a href="./index.php">VetWithホーム</a>　> <?php echo $page_title; ?></div>
 	<div id="main">
 	<h1><?php echo $page_title; ?></h1>
 	

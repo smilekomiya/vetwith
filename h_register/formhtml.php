@@ -1,7 +1,7 @@
 <?php 
 //*****************************************************
 //
-//登録フォームとその確認フォーム。
+//病院登録フォームとその確認フォーム。
 //
 //register_form.phpやregister_confirm.phpに読み込まれる。
 //
@@ -115,7 +115,7 @@ pull_list($pref_array, $name1, $selected_value);
 		</td>
 		</tr>
 		<tr>
-		<td width="200px" align="right">住所</td><td><input value="<?php echo $input_address; ?>" maxLength=200 name="input_address" type="text" size="20">（例：東京都千代田区別途町１－１－１）
+		<td width="200px" align="right">都道府県以下の住所</td><td><input value="<?php echo $input_address; ?>" maxLength=200 name="input_address" type="text" size="20">	（例：千代田区別途町１－１－１）
 		</td>
 		</tr>
 		<tr>

@@ -6,28 +6,22 @@
 //*****************************************************
 session_start();
 
-//ログイン済みの処理
+/*ログイン済みの処理
 if(isset($_SESSION["memberid"])){
 	
 	//ブックマーク案件の抽出
-	$queryFav = "SELECT * FROM bookmark WHERE memberid = '$_SESSION['memberid']'";
+	$queryFav = "SELECT * FROM bookmark WHERE memberid = '$_SESSION[memberid]'";
 	$resurtFav = mysql_query($resultFav);
 	if($resurtFav){
 		
 		//データ件数
 		$numberFav = mysql_num_rows($resultFav);
 		
-		//ブックマーク案件毎に、「案件名」と「案件」
 		while($data = mysql_fetch_assoc($resultFav)){
-			foreach($data as $key => $val){
-				
-			}
-		}
 		
 	}
-	
 }
-
+*/
 ?>
 <html>
 <head>
@@ -71,7 +65,7 @@ $(function(){
 		</a>
 		<ul>
 			<li class="a"><a href="#top"><span style="text-shadow:1px 1px 0 rgba(255,255,255,1);">マイページ</span></a></li>
-			<li class="b"><a href="#thislink"><span style="text-shadow:1px 1px 0 rgba(255,255,255,1);">こんなことも</span></a></li>
+			<li class="b"><a href="#thislink "><span style="text-shadow:1px 1px 0 rgba(255,255,255,1);">こんなことも</span></a></li>
 			<li class="c"><a href="#thatimage"><span style="text-shadow:1px 1px 0 rgba(255,255,255,1);">あんなことも</span><a></li>
 			<li class="d"><a href="#sitemap"><span style="text-shadow:1px 1px 0 rgba(255,255,255,1);">ほげほげ</span></a></li>
 			<li class="e"><a href="#setting"><span style="text-shadow:1px 1px 0 rgba(255,255,255,1);">設定</span></a></li>
@@ -81,7 +75,7 @@ $(function(){
 <div id="wrapper">
 	<div id="searchForm">
 		<form>
-		<input type="search" value="フリーワード検索" class="text">
+		<input type="search" value="フリーワード検索" class="text" onfocus="if (this.value == defaultValue) this.value = '';" onblur="if (!this.value) this.value = defaultValue;">
 		<input type="image" value="検索" src="./simage/search01.png">
 		</form>
 	</div>
